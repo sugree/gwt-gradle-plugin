@@ -21,15 +21,15 @@ libraries = [
         commons_cli     : 'commons-cli:commons-cli:1.2@jar',        
         groovy          : 'org.codehaus.groovy:groovy-all:1.7.1@jar',
         slf4j_api       : 'org.slf4j:slf4j-api:1.5.10@jar',
-        junit           : 'junit:junit:4.7',
+        junit           : 'junit:junit:4.8.1',
         spock           : 'org.spockframework:spock-core:0.4-groovy-1.7-SNAPSHOT',
 
-        gradle_core     : 'org.gradle:gradle-core:0.9-SNAPSHOT',
-        gradle_plugins  : 'org.gradle:gradle-plugins:0.9-SNAPSHOT',
+        gradle_core     : 'org.gradle:gradle-core:0.9.2',
+        gradle_plugins  : 'org.gradle:gradle-plugins:0.9.2',
 
-        gwt_dev         : 'com.google.gwt:gwt-dev:2.0.3',
-        gwt_user        : 'com.google.gwt:gwt-user:2.0.3',
-        gwt_server      : 'com.google.gwt:gwt-server:2.0.3'
+        gwt_dev         : 'com.google.gwt:gwt-dev:2.2.0',
+        gwt_user        : 'com.google.gwt:gwt-user:2.2.0',
+        gwt_server      : 'com.google.gwt:gwt-server:2.2.0'
         
     ]
 

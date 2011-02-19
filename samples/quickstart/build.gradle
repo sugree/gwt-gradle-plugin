@@ -18,9 +18,9 @@ repositories {
 
 dependencies {
     providedCompile 'javax.servlet:servlet-api:2.5'
-    testCompile     'junit:junit:4.7'
+    testCompile     'junit:junit:4.8.1'
 }
 
-gwtVersion = '2.1.0'
+gwtVersion = '2.1.1'
 gwtModule = 'sample.QuickStart'
 gwtStartupUrl = 'sample.QuickStart/index.html'
