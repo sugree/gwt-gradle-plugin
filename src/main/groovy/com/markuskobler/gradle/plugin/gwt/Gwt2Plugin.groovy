@@ -140,14 +140,14 @@ class Gwt2Plugin implements Plugin<Project> {
     }
 
     private void configureJarTaskDefaults(final Project project, final Gwt2PluginConvention pluginConvention) {
-        project.tasks.withType(Jar.class).all { jarTask ->
+        project.tasks.withType(Jar.class).all { Jar task ->
           SourceSet mainSourceSet = project.convention.getPlugin(JavaPluginConvention.class).sourceSets.getByName(SourceSet.MAIN_SOURCE_SET_NAME);
-          jarTask.from(mainSourceSet.java.matching { include("**/client/**") });
+          task.from(mainSourceSet.java.matching { include("**/client/**") });
         }
     }
 
     private void configureWarTaskDefaults(final Project project, final Gwt2PluginConvention pluginConvention) {
-        project.tasks.withType(War.class).all { task ->
+        project.tasks.withType(War.class).all { War task ->
           task.dependsOn(COMPILE_GWT_TASK_NAME)
           task.from(project.fileTree(pluginConvention.gwtBuildDir))
         }
