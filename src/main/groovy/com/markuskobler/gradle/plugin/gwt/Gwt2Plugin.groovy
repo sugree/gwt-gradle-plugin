@@ -29,6 +29,9 @@ import org.gradle.api.tasks.bundling.Jar
 import org.gradle.api.tasks.bundling.War
 import org.gradle.api.tasks.testing.Test
 
+import org.gradle.plugins.eclipse.EclipseProject
+import org.gradle.plugins.eclipse.model.BuildCommand
+
 /**
  *
  * @author Markus Kobler
@@ -57,6 +60,7 @@ class Gwt2Plugin implements Plugin<Project> {
         configureJarTaskDefaults(project, pluginConvention)
         configureTestTaskDefaults(project, pluginConvention)
         configureWarTaskDefaults(project, pluginConvention)
+        configureEclipseTaskDefaults(project, pluginConvention)
 
         addCompileGwt(project)
         addGwtDevMode(project)
@@ -168,6 +172,23 @@ class Gwt2Plugin implements Plugin<Project> {
                         project.configurations.getByName(GWT_CONFIGURATION_NAME));
             }
 
+        }
+    }
+
+    private void configureEclipseTaskDefaults(final Project project, final Gwt2PluginConvention pluginConvention) {
+        project.tasks.withType(EclipseProject.class).all { EclipseProject task ->
+            task.whenConfigured { p ->
+                p.natures.clear()
+                p.buildCommands.clear()
+
+                p.natures = ['org.eclipse.jdt.core.javanature',
+                             'com.google.gwt.eclipse.core.gwtNature']
+                ['org.eclipse.jdt.core.javabuilder',
+                 'com.google.gdt.eclipse.core.webAppProjectValidator',
+                 'com.google.gwt.eclipse.core.gwtProjectValidator'].each {
+                    p.buildCommands.add new BuildCommand(it)
+                }
+            }
         }
     }
 
