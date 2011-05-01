@@ -29,7 +29,7 @@ import org.gradle.api.tasks.bundling.Jar
 import org.gradle.api.tasks.bundling.War
 import org.gradle.api.tasks.testing.Test
 
-import org.gradle.plugins.eclipse.EclipseProject
+import org.gradle.plugins.ide.eclipse.GenerateEclipseProject
 import org.gradle.plugins.eclipse.model.BuildCommand
 
 /**
@@ -176,7 +176,7 @@ class Gwt2Plugin implements Plugin<Project> {
     }
 
     private void configureEclipseTaskDefaults(final Project project, final Gwt2PluginConvention pluginConvention) {
-        project.tasks.withType(EclipseProject.class).all { EclipseProject task ->
+        project.tasks.withType(GenerateEclipseProject.class).all { GenerateEclipseProject task ->
             task.whenConfigured { p ->
                 p.natures.clear()
                 p.buildCommands.clear()
