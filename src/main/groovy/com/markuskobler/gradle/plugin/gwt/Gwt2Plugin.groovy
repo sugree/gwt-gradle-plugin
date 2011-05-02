@@ -30,7 +30,7 @@ import org.gradle.api.tasks.bundling.War
 import org.gradle.api.tasks.testing.Test
 
 import org.gradle.plugins.ide.eclipse.GenerateEclipseProject
-import org.gradle.plugins.eclipse.model.BuildCommand
+import org.gradle.plugins.ide.eclipse.model.BuildCommand
 
 /**
  *
